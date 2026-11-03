@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py prompt" }] }
+    ],
+    "PreToolUse": [
+      { "matcher": "*", "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py tool" }] }
+    ],
+    "PostToolUse": [
+      { "matcher": "*", "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py tool-done" }] }
+    ],
+    "Notification": [
+      { "matcher": "permission_prompt", "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py needs-you" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py stop" }] }
+    ],
+    "SessionEnd": [
+      { "hooks": [{ "type": "command", "command": "/usr/bin/python3 -I ~/.claude/agent-light/hook.py end" }] }
+    ]
+  }
+}
